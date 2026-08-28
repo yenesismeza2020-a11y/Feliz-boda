@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boda Bajo Las Estrellas — Mensaje en una Botella</title>
+    <title>Boda Bajo Las Estrellas — Dania & Tania</title>
     <!-- Fuentes Elegantes de Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <!-- Iconos Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -18,8 +18,8 @@
             --gold: #d4af37;
             --gold-light: #f3e5ab;
             --text-light: #f8f9fa;
-            --card-glass: rgba(10, 17, 40, 0.65);
-            --border-glass: rgba(212, 175, 55, 0.3);
+            --card-glass: rgba(10, 17, 40, 0.75);
+            --border-glass: rgba(212, 175, 55, 0.35);
         }
 
         * {
@@ -61,7 +61,7 @@
         /* CABECERA ELEGANTE */
         .header-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2.8rem;
+            font-size: 3.2rem;
             color: var(--gold);
             letter-spacing: 2px;
             font-weight: 600;
@@ -72,7 +72,7 @@
 
         .header-subtitle {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-style: italic;
             color: var(--gold-light);
             margin-bottom: 25px;
@@ -92,33 +92,33 @@
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--border-glass);
             border-radius: 12px;
-            padding: 30px 20px;
+            padding: 35px 25px;
             margin-bottom: 35px;
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
         }
 
-        /* INTERACCIÓN: LA BOTELLA DE DESEOS */
+        /* BOTELLA PRINCIPAL DE INTERACCIÓN */
         .bottle-container {
             cursor: pointer;
             display: inline-block;
             transition: transform 0.3s ease;
-            margin: 20px 0;
+            margin: 25px 0 15px 0;
         }
 
         .bottle-container:hover {
-            transform: scale(1.08) rotate(3deg);
+            transform: scale(1.1) rotate(4deg);
         }
 
         .bottle-icon {
-            font-size: 4rem;
+            font-size: 4.5rem;
             color: var(--gold-light);
-            filter: drop-shadow(0 0 12px rgba(243, 229, 171, 0.6));
+            filter: drop-shadow(0 0 15px rgba(243, 229, 171, 0.7));
             animation: float 4s ease-in-out infinite;
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-10px) rotate(-3deg); }
+            50% { transform: translateY(-12px) rotate(-4deg); }
         }
 
         /* BOTONES ELEGANTES */
@@ -128,13 +128,13 @@
             color: var(--gold-light);
             padding: 12px 30px;
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             letter-spacing: 2px;
             text-transform: uppercase;
             border-radius: 25px;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-top: 15px;
+            margin: 10px 5px;
         }
 
         .btn-gold:hover {
@@ -143,7 +143,34 @@
             box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
         }
 
-        /* FORMULARIO OCULTO / VENTANA MODAL */
+        /* VERSÍCULO BÍBLICO ELEGANTE */
+        .verse-box {
+            border-left: 2px solid var(--gold);
+            border-right: 2px solid var(--gold);
+            padding: 20px;
+            margin: 20px 0;
+            background: rgba(212, 175, 55, 0.03);
+        }
+
+        .verse-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-style: italic;
+            color: #e2e2e2;
+            line-height: 1.8;
+        }
+
+        .verse-reference {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            color: var(--gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 15px;
+            display: block;
+        }
+
+        /* VENTANAS MODALES */
         .modal {
             display: none;
             position: fixed;
@@ -152,10 +179,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(10, 17, 40, 0.85);
+            background-color: rgba(10, 17, 40, 0.88);
             backdrop-filter: blur(8px);
             align-items: center;
             justify-content: center;
+            overflow-y: auto;
+            padding: 20px;
         }
 
         .modal.active {
@@ -163,9 +192,11 @@
         }
 
         .modal-content {
-            width: 90%;
-            max-width: 500px;
+            width: 100%;
+            max-width: 600px;
             position: relative;
+            max-height: 85vh;
+            overflow-y: auto;
         }
 
         .close-btn {
@@ -173,10 +204,46 @@
             top: 15px;
             right: 20px;
             color: var(--gold);
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             cursor: pointer;
         }
 
+        /* MENSAJES DE LA FAMILIA EN EL PERGAMINO */
+        .family-messages-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 25px;
+            text-align: left;
+        }
+
+        .message-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            border-radius: 8px;
+            padding: 20px;
+            position: relative;
+        }
+
+        .message-card p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #ececec;
+            line-height: 1.6;
+        }
+
+        .message-author {
+            margin-top: 12px;
+            font-size: 0.8rem;
+            color: var(--gold);
+            letter-spacing: 1px;
+            text-align: right;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        /* FORMULARIO */
         form {
             display: flex;
             flex-direction: column;
@@ -192,7 +259,7 @@
             text-transform: uppercase;
         }
 
-        input, textarea, select {
+        input, textarea {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--border-glass);
             padding: 12px;
@@ -201,50 +268,17 @@
             font-family: 'Montserrat', sans-serif;
         }
 
-        input:focus, textarea:focus, select:focus {
+        input:focus, textarea:focus {
             outline: none;
             border-color: var(--gold);
             box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
         }
 
-        /* MURO DE DESEOS (MENSAJES) */
-        .wishes-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .wish-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 8px;
-            padding: 20px;
-            text-align: left;
-            position: relative;
-        }
-
-        .wish-card p {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem;
-            font-style: italic;
-            color: #e0e0e0;
-            line-height: 1.4;
-        }
-
-        .wish-author {
-            margin-top: 15px;
-            font-size: 0.8rem;
-            color: var(--gold);
-            letter-spacing: 1px;
-            text-align: right;
-            text-transform: uppercase;
-        }
-
         /* RESPONSIVE */
         @media (max-width: 600px) {
-            .header-title { font-size: 2rem; }
-            .header-subtitle { font-size: 1.1rem; }
+            .header-title { font-size: 2.3rem; }
+            .header-subtitle { font-size: 1.2rem; }
+            .verse-text { font-size: 1.1rem; }
         }
     </style>
 </head>
@@ -254,25 +288,20 @@
     <canvas id="skyCanvas"></canvas>
 
     <div class="main-wrapper">
-        <!-- ENCABEZADO DE LA BODA -->
+        <!-- ENCABEZADO PRINCIPAL -->
         <header>
-            <h1 class="header-title">María & Alejandro</h1>
+            <h1 class="header-title">Dania & Tania</h1>
             <p class="header-subtitle">Nuestra Boda Bajo Las Estrellas</p>
             <div class="divider"></div>
-            <p style="font-size: 0.9rem; letter-spacing: 2px; color: var(--gold-light);">
-                SÁBADO, 14 DE NOVIEMBRE DE 2026 &bull; PLAYA DEL CARMEN
-            </p>
         </header>
 
-        <div style="margin-top: 40px;"></div>
-
-        <!-- SECCIÓN INTERACTIVA: BOTELLA DE DESEOS -->
+        <!-- SECCIÓN INTERACTIVA: LA BOTELLA FAMILIAR -->
         <section class="glass-card">
-            <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: var(--gold); font-weight: 400;">
-                Mensaje en una Botella
+            <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--gold); font-weight: 400;">
+                La Botella del Mar
             </h2>
-            <p style="font-size: 0.85rem; color: #ccc; margin-top: 10px; line-height: 1.6;">
-                Haz clic en la botella para enviarnos tus buenos deseos, un mensaje especial o confirmar tu asistencia a nuestro gran día.
+            <p style="font-size: 0.9rem; color: #ccc; margin-top: 10px; line-height: 1.6;">
+                Un recipiente guardado en el mar con las palabras y bendiciones de nuestra familia. Haz clic en la botella para descorchar los mensajes.
             </p>
 
             <div class="bottle-container" id="openBottleBtn">
@@ -282,53 +311,72 @@
             </div>
 
             <div>
-                <button class="btn-gold" id="openBottleBtn2">Lanzar Mensaje al Mar</button>
+                <button class="btn-gold" id="readMessagesBtn">Abrir Mensajes de la Familia</button>
+                <button class="btn-gold" id="writeMessageBtn">Escribir un Nuevo Mensaje</button>
             </div>
         </section>
 
-        <!-- MURO DE DESEOS / MENSAJES RECIBIDOS -->
+        <!-- SECCIÓN DEL VERSÍCULO BÍBLICO -->
         <section class="glass-card">
-            <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: var(--gold); font-weight: 400;">
-                Deseos Flotantes
-            </h2>
-            <div class="wishes-grid" id="wishesGrid">
-                <!-- Ejemplo inicial de deseo -->
-                <div class="wish-card">
-                    <p>"Que su amor sea siempre tan profundo como el mar y brillante como el cielo de esta noche."</p>
-                    <div class="wish-author">— Familia Gómez</div>
-                </div>
-                <div class="wish-card">
-                    <p>"¡Listos para celebrar con ustedes frente al mar! Felicidades."</p>
-                    <div class="wish-author">— Sofia & Carlos</div>
-                </div>
+            <div class="verse-box">
+                <p class="verse-text">
+                    «El amor es paciente, es servicial; el amor no tiene envidia, no hace alarde, no es jactancioso; no actúa con bajereza, no busca su propio interés, no se irrita, no lleva cuentas del mal; no se alegra de la injusticia, sino que se goza con la verdad. Todo lo excusa, todo lo cree, todo lo espera, todo lo soporta. El amor no pasa nunca.»
+                </p>
+                <span class="verse-reference">1 Corintios 13:4-8</span>
             </div>
         </section>
     </div>
 
-    <!-- MODAL DE FORMULARIO PARA ENVIAR MENSAJE -->
-    <div class="modal" id="wishModal">
+    <!-- MODAL 1: VER MENSAJES DE LA FAMILIA -->
+    <div class="modal" id="readModal">
         <div class="modal-content glass-card">
-            <span class="close-btn" id="closeModal">&times;</span>
-            <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: var(--gold); text-align: center;">
-                Escribe tu Mensaje
+            <span class="close-btn" id="closeReadModal">&times;</span>
+            <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2.1rem; color: var(--gold); text-align: center;">
+                Palabras de la Familia
             </h3>
-            <form id="wishForm">
+            <p style="font-size: 0.85rem; color: var(--gold-light); text-align: center; margin-top: 5px;">
+                Guardadas en el corazón y en el mar para Dania & Tania
+            </p>
+            
+            <div class="family-messages-list" id="familyMessagesList">
+                <!-- AQUÍ PUEDES EDITAR O CAMBIAR LOS MENSAJES DE LOS 4 MIEMBROS -->
+                <div class="message-card">
+                    <p>"Que este nuevo camino que emprenden juntas esté siempre iluminado por la misma luz y paz que nos transmite el mar en esta noche. Las amamos con todo el corazón."</p>
+                    <div class="message-author">— Miembro de la Familia 1</div>
+                </div>
+                <div class="message-card">
+                    <p>"Verlas unirse y celebrar su amor es una de las bendiciones más grandes para nuestra familia. Que la paciencia y la alegría nunca falten en su hogar."</p>
+                    <div class="message-author">— Miembro de la Familia 2</div>
+                </div>
+                <div class="message-card">
+                    <p>"Siempre contarán con nuestro apoyo, nuestro abrazo y nuestro amor incondicional en cada paso que den juntas. ¡Felicidades!"</p>
+                    <div class="message-author">— Miembro de la Familia 3</div>
+                </div>
+                <div class="message-card">
+                    <p>"Que su historia siga escribiéndose con la misma magia de esta noche bajo las estrellas."</p>
+                    <div class="message-author">— Miembro de la Familia 4</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 2: FORMULARIO PARA AGREGAR OTRO MENSAJE -->
+    <div class="modal" id="writeModal">
+        <div class="modal-content glass-card">
+            <span class="close-btn" id="closeWriteModal">&times;</span>
+            <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--gold); text-align: center;">
+                Añadir un Mensaje
+            </h3>
+            <form id="newMessageForm">
                 <div>
-                    <label>Tu Nombre / Familia</label>
-                    <input type="text" id="authorInput" required placeholder="Ej. Ana y Roberto">
+                    <label>Tu Nombre</label>
+                    <input type="text" id="authorInput" required placeholder="Ej. Mamá / Papá / Hermano">
                 </div>
                 <div>
-                    <label>Asistencia (RSVP)</label>
-                    <select id="rsvpInput">
-                        <option value="Acompañaré en la boda">¡Sí, estaré ahí para celebrar!</option>
-                        <option value="No podré asistir">Lamentablemente no podré asistir</option>
-                    </select>
+                    <label>Tu Mensaje o Deseo</label>
+                    <textarea id="messageInput" rows="4" required placeholder="Escribe tus palabras para Dania y Tania..."></textarea>
                 </div>
-                <div>
-                    <label>Tu Deseo o Mensaje</label>
-                    <textarea id="messageInput" rows="4" required placeholder="Escribe aquí tus palabras para los novios..."></textarea>
-                </div>
-                <button type="submit" class="btn-gold" style="width: 100%;">Lanzar Botella</button>
+                <button type="submit" class="btn-gold" style="width: 100%;">Guardar en la Botella</button>
             </form>
         </div>
     </div>
@@ -345,9 +393,8 @@
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
 
-        // Crear estrellas
         const stars = [];
-        for (let i = 0; i < 150; i++) {
+        for (let i = 0; i < 160; i++) {
             stars.push({
                 x: Math.random() * canvas.width,
                 y: Math.random() * canvas.height,
@@ -360,7 +407,6 @@
         function drawSky() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            // Dibujar estrellas titilantes
             stars.forEach(star => {
                 ctx.beginPath();
                 ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
@@ -377,50 +423,60 @@
         }
         drawSky();
 
-        // --- 2. LOGICA INTERACTIVA DEL MODAL Y MENSAJES ---
-        const modal = document.getElementById('wishModal');
-        const openBtn1 = document.getElementById('openBottleBtn');
-        const openBtn2 = document.getElementById('openBottleBtn2');
-        const closeBtn = document.getElementById('closeModal');
-        const wishForm = document.getElementById('wishForm');
-        const wishesGrid = document.getElementById('wishesGrid');
+        // --- 2. LÓGICA DE INTERACCIÓN Y MODALES ---
+        const readModal = document.getElementById('readModal');
+        const writeModal = document.getElementById('writeModal');
 
-        function openModal() { modal.classList.add('active'); }
-        function closeModal() { modal.classList.remove('active'); }
+        const openBottleBtn = document.getElementById('openBottleBtn');
+        const readMessagesBtn = document.getElementById('readMessagesBtn');
+        const writeMessageBtn = document.getElementById('writeMessageBtn');
 
-        openBtn1.addEventListener('click', openModal);
-        openBtn2.addEventListener('click', openModal);
-        closeBtn.addEventListener('click', closeModal);
+        const closeReadModal = document.getElementById('closeReadModal');
+        const closeWriteModal = document.getElementById('closeWriteModal');
+
+        const newMessageForm = document.getElementById('newMessageForm');
+        const familyMessagesList = document.getElementById('familyMessagesList');
+
+        // Abrir modal de lectura al tocar la botella o el botón
+        openBottleBtn.addEventListener('click', () => readModal.classList.add('active'));
+        readMessagesBtn.addEventListener('click', () => readModal.classList.add('active'));
+        
+        // Abrir modal de escritura
+        writeMessageBtn.addEventListener('click', () => writeModal.classList.add('active'));
+
+        // Cerrar modales
+        closeReadModal.addEventListener('click', () => readModal.classList.remove('active'));
+        closeWriteModal.addEventListener('click', () => writeModal.classList.remove('active'));
 
         window.addEventListener('click', (e) => {
-            if (e.target === modal) closeModal();
+            if (e.target === readModal) readModal.classList.remove('active');
+            if (e.target === writeModal) writeModal.classList.remove('active');
         });
 
-        // Guardar y mostrar mensaje enviado
-        wishForm.addEventListener('submit', (e) => {
+        // Guardar nuevo mensaje
+        newMessageForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
             const author = document.getElementById('authorInput').value;
             const message = document.getElementById('messageInput').value;
 
-            // Crear nueva tarjeta de deseo
             const newCard = document.createElement('div');
-            newCard.className = 'wish-card';
+            newCard.className = 'message-card';
             newCard.style.border = '1px solid var(--gold)';
             newCard.innerHTML = `
                 <p>"${message}"</p>
-                <div class="wish-author">— ${author}</div>
+                <div class="message-author">— ${author}</div>
             `;
 
-            // Insertar al inicio de la lista
-            wishesGrid.prepend(newCard);
+            familyMessagesList.prepend(newCard);
+            newMessageForm.reset();
+            writeModal.classList.remove('active');
 
-            // Limpiar y cerrar modal
-            wishForm.reset();
-            closeModal();
-
-            alert('✨ ¡Tu mensaje ha sido lanzado al mar con éxito!');
+            // Abrir automáticamente la lista para que vean su mensaje recién añadido
+            readModal.classList.add('active');
         });
     </script>
 </body>
 </html>
+        
+             
