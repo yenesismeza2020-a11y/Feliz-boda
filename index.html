@@ -340,23 +340,7 @@
             </p>
             
             <div class="family-messages-list" id="familyMessagesList">
-                <!-- PUEDES REEMPLAZAR ESTOS TEXTOS CON LOS MENSAJES REALES DE TU FAMILIA DE 4 -->
-                <div class="message-card">
-                    <p>"Que este nuevo camino que emprenden juntas esté siempre iluminado por la misma luz y paz que nos transmite el mar en esta noche. Las amamos con todo el corazón."</p>
-                    <div class="message-author">— Miembro de la Familia 1</div>
-                </div>
-                <div class="message-card">
-                    <p>"Verlas unirse y celebrar su amor es una de las bendiciones más grandes para nuestra familia. Que la paciencia y la alegría nunca falten en su hogar."</p>
-                    <div class="message-author">— Miembro de la Familia 2</div>
-                </div>
-                <div class="message-card">
-                    <p>"Siempre contarán con nuestro apoyo, nuestro abrazo y nuestro amor incondicional en cada paso que den juntas. ¡Felicidades!"</p>
-                    <div class="message-author">— Miembro de la Familia 3</div>
-                </div>
-                <div class="message-card">
-                    <p>"Que su historia siga escribiéndose con la misma magia de esta noche bajo las estrellas."</p>
-                    <div class="message-author">— Miembro de la Familia 4</div>
-                </div>
+                <!-- LISTA VACÍA: SE LLENARÁ CON LOS MENSAJES QUE USTEDES ESCRIBAN -->
             </div>
         </div>
     </div>
@@ -432,7 +416,7 @@
                 }
             });
 
-            // 3. Resplandor de la Luna en la esquina superior derecha
+            // 3. Resplandor de la Luna
             const moonX = canvas.width * 0.85;
             const moonY = 80;
             
@@ -457,10 +441,9 @@
             ctx.fillStyle = reflectGlow;
             ctx.fillRect(moonX - 60, canvas.height * 0.6, 120, canvas.height * 0.4);
 
-            // 5. Olas del Mar en Movimiento (Parte Inferior)
+            // 5. Olas del Mar en Movimiento
             waveOffset += 0.02;
 
-            // Ola lejana
             ctx.fillStyle = 'rgba(12, 35, 68, 0.8)';
             ctx.beginPath();
             ctx.moveTo(0, canvas.height);
@@ -472,7 +455,6 @@
             ctx.closePath();
             ctx.fill();
 
-            // Ola cercana con espuma blanca brillante
             ctx.fillStyle = 'rgba(20, 50, 90, 0.9)';
             ctx.beginPath();
             ctx.moveTo(0, canvas.height);
@@ -539,6 +521,6 @@
     </script>
 </body>
 </html>
-     
+  
 
-    
+  
