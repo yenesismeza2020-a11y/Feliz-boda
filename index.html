@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boda Bajo Las Estrellas — Dania & Tania</title>
+    <title>Dania & Tania — Empieza el resto de nuestra historia</title>
     <!-- Fuentes Elegantes de Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,11 +14,11 @@
     <style>
         /* --- ESTILOS GENERALES Y PALETA DE COLORES --- */
         :root {
-            --bg-night: #0a1128;
+            --bg-night: #050b18;
             --gold: #d4af37;
             --gold-light: #f3e5ab;
             --text-light: #f8f9fa;
-            --card-glass: rgba(10, 17, 40, 0.75);
+            --card-glass: rgba(8, 15, 35, 0.75);
             --border-glass: rgba(212, 175, 55, 0.35);
         }
 
@@ -37,8 +37,8 @@
             position: relative;
         }
 
-        /* FONDO ANIMADO: NOCHE Y MAR */
-        #skyCanvas {
+        /* CANVAS DE FONDO: PLAYA, OLAS Y ESTRELLAS */
+        #beachCanvas {
             position: fixed;
             top: 0;
             left: 0;
@@ -61,21 +61,22 @@
         /* CABECERA ELEGANTE */
         .header-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 3.2rem;
+            font-size: 3.4rem;
             color: var(--gold);
             letter-spacing: 2px;
             font-weight: 600;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             text-transform: uppercase;
-            text-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
         }
 
         .header-subtitle {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-style: italic;
             color: var(--gold-light);
             margin-bottom: 25px;
+            letter-spacing: 1px;
         }
 
         .divider {
@@ -94,7 +95,7 @@
             border-radius: 12px;
             padding: 35px 25px;
             margin-bottom: 35px;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
         }
 
         /* BOTELLA PRINCIPAL DE INTERACCIÓN */
@@ -110,9 +111,9 @@
         }
 
         .bottle-icon {
-            font-size: 4.5rem;
+            font-size: 4.8rem;
             color: var(--gold-light);
-            filter: drop-shadow(0 0 15px rgba(243, 229, 171, 0.7));
+            filter: drop-shadow(0 0 18px rgba(243, 229, 171, 0.8));
             animation: float 4s ease-in-out infinite;
         }
 
@@ -126,7 +127,7 @@
             background: transparent;
             border: 1px solid var(--gold);
             color: var(--gold-light);
-            padding: 12px 30px;
+            padding: 12px 28px;
             font-family: 'Montserrat', sans-serif;
             font-size: 0.85rem;
             letter-spacing: 2px;
@@ -148,15 +149,15 @@
             border-left: 2px solid var(--gold);
             border-right: 2px solid var(--gold);
             padding: 20px;
-            margin: 20px 0;
+            margin: 10px 0;
             background: rgba(212, 175, 55, 0.03);
         }
 
         .verse-text {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             font-style: italic;
-            color: #e2e2e2;
+            color: #ececec;
             line-height: 1.8;
         }
 
@@ -179,8 +180,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(10, 17, 40, 0.88);
-            backdrop-filter: blur(8px);
+            background-color: rgba(5, 11, 24, 0.9);
+            backdrop-filter: blur(10px);
             align-items: center;
             justify-content: center;
             overflow-y: auto;
@@ -227,9 +228,9 @@
 
         .message-card p {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             font-style: italic;
-            color: #ececec;
+            color: #ffffff;
             line-height: 1.6;
         }
 
@@ -276,32 +277,32 @@
 
         /* RESPONSIVE */
         @media (max-width: 600px) {
-            .header-title { font-size: 2.3rem; }
-            .header-subtitle { font-size: 1.2rem; }
-            .verse-text { font-size: 1.1rem; }
+            .header-title { font-size: 2.4rem; }
+            .header-subtitle { font-size: 1.25rem; }
+            .verse-text { font-size: 1.15rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- FONDO DE ESTRELLAS -->
-    <canvas id="skyCanvas"></canvas>
+    <!-- CANVA ANIMADO: CIELO ESTRELLADO, LUNA Y OLAS DEL MAR -->
+    <canvas id="beachCanvas"></canvas>
 
     <div class="main-wrapper">
         <!-- ENCABEZADO PRINCIPAL -->
         <header>
             <h1 class="header-title">Dania & Tania</h1>
-            <p class="header-subtitle">Nuestra Boda Bajo Las Estrellas</p>
+            <p class="header-subtitle">Empieza el resto de nuestra historia</p>
             <div class="divider"></div>
         </header>
 
         <!-- SECCIÓN INTERACTIVA: LA BOTELLA FAMILIAR -->
         <section class="glass-card">
-            <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--gold); font-weight: 400;">
+            <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.1rem; color: var(--gold); font-weight: 400;">
                 La Botella del Mar
             </h2>
-            <p style="font-size: 0.9rem; color: #ccc; margin-top: 10px; line-height: 1.6;">
-                Un recipiente guardado en el mar con las palabras y bendiciones de nuestra familia. Haz clic en la botella para descorchar los mensajes.
+            <p style="font-size: 0.9rem; color: #d0d0d0; margin-top: 10px; line-height: 1.6;">
+                Guardada en el mar con las palabras y bendiciones de nuestra familia. Haz clic en la botella para descorchar los mensajes.
             </p>
 
             <div class="bottle-container" id="openBottleBtn">
@@ -331,7 +332,7 @@
     <div class="modal" id="readModal">
         <div class="modal-content glass-card">
             <span class="close-btn" id="closeReadModal">&times;</span>
-            <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2.1rem; color: var(--gold); text-align: center;">
+            <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--gold); text-align: center;">
                 Palabras de la Familia
             </h3>
             <p style="font-size: 0.85rem; color: var(--gold-light); text-align: center; margin-top: 5px;">
@@ -339,7 +340,7 @@
             </p>
             
             <div class="family-messages-list" id="familyMessagesList">
-                <!-- AQUÍ PUEDES EDITAR O CAMBIAR LOS MENSAJES DE LOS 4 MIEMBROS -->
+                <!-- PUEDES REEMPLAZAR ESTOS TEXTOS CON LOS MENSAJES REALES DE TU FAMILIA DE 4 -->
                 <div class="message-card">
                     <p>"Que este nuevo camino que emprenden juntas esté siempre iluminado por la misma luz y paz que nos transmite el mar en esta noche. Las amamos con todo el corazón."</p>
                     <div class="message-author">— Miembro de la Familia 1</div>
@@ -382,8 +383,8 @@
     </div>
 
     <script>
-        // --- 1. SCRIPT DEL FONDO ANIMADO DE ESTRELLAS Y OLAS ---
-        const canvas = document.getElementById('skyCanvas');
+        // --- SCRIPT DE DIBUJO DE PLAYA NOCTURNA EN TIEMPO REAL ---
+        const canvas = document.getElementById('beachCanvas');
         const ctx = canvas.getContext('2d');
 
         function resizeCanvas() {
@@ -393,20 +394,32 @@
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
 
+        // Estrellas
         const stars = [];
-        for (let i = 0; i < 160; i++) {
+        for (let i = 0; i < 180; i++) {
             stars.push({
                 x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
+                y: Math.random() * (canvas.height * 0.7),
                 radius: Math.random() * 1.5,
                 alpha: Math.random(),
-                speed: Math.random() * 0.02 + 0.005
+                speed: Math.random() * 0.015 + 0.005
             });
         }
 
-        function drawSky() {
+        let waveOffset = 0;
+
+        function drawBeachNight() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+            // 1. Cielo Gradiente Nocturno
+            const skyGradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+            skyGradient.addColorStop(0, '#030712');
+            skyGradient.addColorStop(0.6, '#0a1631');
+            skyGradient.addColorStop(1, '#0f2347');
+            ctx.fillStyle = skyGradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // 2. Estrellas Titilantes
             stars.forEach(star => {
                 ctx.beginPath();
                 ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
@@ -419,11 +432,63 @@
                 }
             });
 
-            requestAnimationFrame(drawSky);
-        }
-        drawSky();
+            // 3. Resplandor de la Luna en la esquina superior derecha
+            const moonX = canvas.width * 0.85;
+            const moonY = 80;
+            
+            const moonGlow = ctx.createRadialGradient(moonX, moonY, 10, moonX, moonY, 120);
+            moonGlow.addColorStop(0, 'rgba(243, 229, 171, 0.9)');
+            moonGlow.addColorStop(0.2, 'rgba(243, 229, 171, 0.3)');
+            moonGlow.addColorStop(1, 'rgba(243, 229, 171, 0)');
+            ctx.fillStyle = moonGlow;
+            ctx.beginPath();
+            ctx.arc(moonX, moonY, 120, 0, Math.PI * 2);
+            ctx.fill();
 
-        // --- 2. LÓGICA DE INTERACCIÓN Y MODALES ---
+            ctx.fillStyle = '#fffdf0';
+            ctx.beginPath();
+            ctx.arc(moonX, moonY, 22, 0, Math.PI * 2);
+            ctx.fill();
+
+            // 4. Reflejo de Luna sobre el agua
+            const reflectGlow = ctx.createLinearGradient(moonX - 50, canvas.height * 0.6, moonX + 50, canvas.height);
+            reflectGlow.addColorStop(0, 'rgba(212, 175, 55, 0.15)');
+            reflectGlow.addColorStop(1, 'rgba(212, 175, 55, 0)');
+            ctx.fillStyle = reflectGlow;
+            ctx.fillRect(moonX - 60, canvas.height * 0.6, 120, canvas.height * 0.4);
+
+            // 5. Olas del Mar en Movimiento (Parte Inferior)
+            waveOffset += 0.02;
+
+            // Ola lejana
+            ctx.fillStyle = 'rgba(12, 35, 68, 0.8)';
+            ctx.beginPath();
+            ctx.moveTo(0, canvas.height);
+            for (let x = 0; x <= canvas.width; x += 20) {
+                const y = Math.sin(x * 0.008 + waveOffset) * 12 + (canvas.height - 120);
+                ctx.lineTo(x, y);
+            }
+            ctx.lineTo(canvas.width, canvas.height);
+            ctx.closePath();
+            ctx.fill();
+
+            // Ola cercana con espuma blanca brillante
+            ctx.fillStyle = 'rgba(20, 50, 90, 0.9)';
+            ctx.beginPath();
+            ctx.moveTo(0, canvas.height);
+            for (let x = 0; x <= canvas.width; x += 20) {
+                const y = Math.sin(x * 0.01 - waveOffset) * 18 + (canvas.height - 70);
+                ctx.lineTo(x, y);
+            }
+            ctx.lineTo(canvas.width, canvas.height);
+            ctx.closePath();
+            ctx.fill();
+
+            requestAnimationFrame(drawBeachNight);
+        }
+        drawBeachNight();
+
+        // --- LÓGICA DE INTERACCIÓN Y MODALES ---
         const readModal = document.getElementById('readModal');
         const writeModal = document.getElementById('writeModal');
 
@@ -437,11 +502,9 @@
         const newMessageForm = document.getElementById('newMessageForm');
         const familyMessagesList = document.getElementById('familyMessagesList');
 
-        // Abrir modal de lectura al tocar la botella o el botón
+        // Abrir modales
         openBottleBtn.addEventListener('click', () => readModal.classList.add('active'));
         readMessagesBtn.addEventListener('click', () => readModal.classList.add('active'));
-        
-        // Abrir modal de escritura
         writeMessageBtn.addEventListener('click', () => writeModal.classList.add('active'));
 
         // Cerrar modales
@@ -453,7 +516,7 @@
             if (e.target === writeModal) writeModal.classList.remove('active');
         });
 
-        // Guardar nuevo mensaje
+        // Guardar nuevo mensaje en vivo
         newMessageForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
@@ -471,12 +534,11 @@
             familyMessagesList.prepend(newCard);
             newMessageForm.reset();
             writeModal.classList.remove('active');
-
-            // Abrir automáticamente la lista para que vean su mensaje recién añadido
             readModal.classList.add('active');
         });
     </script>
 </body>
 </html>
-        
-             
+     
+
+    
