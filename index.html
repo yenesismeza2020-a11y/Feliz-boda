@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dani & Tania — Empieza el resto de nuestra historia</title>
-    <!-- Fuentes Elegantes de Google Fonts -->
+    <!-- Fuentes Elegantes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
@@ -37,7 +37,6 @@
             position: relative;
         }
 
-        /* CANVAS DE FONDO: PLAYA, OLAS Y ESTRELLAS */
         #beachCanvas {
             position: fixed;
             top: 0;
@@ -48,7 +47,6 @@
             pointer-events: none;
         }
 
-        /* CONTENEDOR PRINCIPAL */
         .main-wrapper {
             position: relative;
             z-index: 10;
@@ -58,7 +56,6 @@
             text-align: center;
         }
 
-        /* CABECERA ELEGANTE */
         .header-title {
             font-family: 'Cormorant Garamond', serif;
             font-size: 3.4rem;
@@ -86,7 +83,6 @@
             margin: 20px auto 30px auto;
         }
 
-        /* TARJETAS CON EFECTO DE CRISTAL (GLASSMORPHISM) */
         .glass-card {
             background: var(--card-glass);
             backdrop-filter: blur(12px);
@@ -98,7 +94,6 @@
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
         }
 
-        /* BOTELLA PRINCIPAL DE INTERACCIÓN */
         .bottle-container {
             cursor: pointer;
             display: inline-block;
@@ -122,7 +117,6 @@
             50% { transform: translateY(-12px) rotate(-4deg); }
         }
 
-        /* BOTONES ELEGANTES */
         .btn-gold {
             background: transparent;
             border: 1px solid var(--gold);
@@ -144,7 +138,6 @@
             box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
         }
 
-        /* VERSÍCULO BÍBLICO ELEGANTE */
         .verse-box {
             border-left: 2px solid var(--gold);
             border-right: 2px solid var(--gold);
@@ -171,7 +164,6 @@
             display: block;
         }
 
-        /* VENTANAS MODALES */
         .modal {
             display: none;
             position: fixed;
@@ -209,7 +201,6 @@
             cursor: pointer;
         }
 
-        /* MENSAJES DE LA FAMILIA EN EL PERGAMINO */
         .family-messages-list {
             display: flex;
             flex-direction: column;
@@ -220,7 +211,7 @@
 
         .message-card {
             background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(212, 175, 55, 0.25);
+            border: 1px solid rgba(212, 175, 55, 0.35);
             border-radius: 8px;
             padding: 20px;
             position: relative;
@@ -244,7 +235,14 @@
             font-weight: 500;
         }
 
-        /* FORMULARIO */
+        .empty-notice {
+            color: #aaa;
+            font-style: italic;
+            text-align: center;
+            font-size: 0.95rem;
+            padding: 20px 0;
+        }
+
         form {
             display: flex;
             flex-direction: column;
@@ -275,7 +273,6 @@
             box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
         }
 
-        /* RESPONSIVE */
         @media (max-width: 600px) {
             .header-title { font-size: 2.4rem; }
             .header-subtitle { font-size: 1.25rem; }
@@ -285,18 +282,15 @@
 </head>
 <body>
 
-    <!-- CANVA ANIMADO: CIELO ESTRELLADO, LUNA Y OLAS DEL MAR -->
     <canvas id="beachCanvas"></canvas>
 
     <div class="main-wrapper">
-        <!-- ENCABEZADO PRINCIPAL -->
         <header>
             <h1 class="header-title">Dani & Tania</h1>
             <p class="header-subtitle">Empieza el resto de nuestra historia</p>
             <div class="divider"></div>
         </header>
 
-        <!-- SECCIÓN INTERACTIVA: LA BOTELLA FAMILIAR -->
         <section class="glass-card">
             <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.1rem; color: var(--gold); font-weight: 400;">
                 La Botella del Mar
@@ -317,7 +311,6 @@
             </div>
         </section>
 
-        <!-- SECCIÓN DEL VERSÍCULO BÍBLICO -->
         <section class="glass-card">
             <div class="verse-box">
                 <p class="verse-text">
@@ -336,11 +329,11 @@
                 Palabras de la Familia
             </h3>
             <p style="font-size: 0.85rem; color: var(--gold-light); text-align: center; margin-top: 5px;">
-                Guardadas en el corazón y en el mar para Dania & Tania
+                Guardadas en el corazón y en el mar para Dani & Tania
             </p>
             
             <div class="family-messages-list" id="familyMessagesList">
-                <!-- LISTA VACÍA: SE LLENARÁ CON LOS MENSAJES QUE USTEDES ESCRIBAN -->
+                <p class="empty-notice">Cargando mensajes del mar...</p>
             </div>
         </div>
     </div>
@@ -359,7 +352,7 @@
                 </div>
                 <div>
                     <label>Tu Mensaje o Deseo</label>
-                    <textarea id="messageInput" rows="4" required placeholder="Escribe tus palabras para Dania y Tania..."></textarea>
+                    <textarea id="messageInput" rows="4" required placeholder="Escribe tus palabras para Dani y Tania..."></textarea>
                 </div>
                 <button type="submit" class="btn-gold" style="width: 100%;">Guardar en la Botella</button>
             </form>
@@ -367,7 +360,10 @@
     </div>
 
     <script>
-        // --- SCRIPT DE DIBUJO DE PLAYA NOCTURNA EN TIEMPO REAL ---
+        // --- URL DE TU BASE DE DATOS DE FIREBASE ---
+        const DATABASE_URL = "https://boda-778d6-default-rtdb.firebaseio.com/messages.json";
+
+        // --- ANIMACIÓN DE LA PLAYA NOCTURNA ---
         const canvas = document.getElementById('beachCanvas');
         const ctx = canvas.getContext('2d');
 
@@ -378,7 +374,6 @@
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
 
-        // Estrellas
         const stars = [];
         for (let i = 0; i < 180; i++) {
             stars.push({
@@ -395,7 +390,6 @@
         function drawBeachNight() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            // 1. Cielo Gradiente Nocturno
             const skyGradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
             skyGradient.addColorStop(0, '#030712');
             skyGradient.addColorStop(0.6, '#0a1631');
@@ -403,7 +397,6 @@
             ctx.fillStyle = skyGradient;
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            // 2. Estrellas Titilantes
             stars.forEach(star => {
                 ctx.beginPath();
                 ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
@@ -416,7 +409,6 @@
                 }
             });
 
-            // 3. Resplandor de la Luna
             const moonX = canvas.width * 0.85;
             const moonY = 80;
             
@@ -434,14 +426,12 @@
             ctx.arc(moonX, moonY, 22, 0, Math.PI * 2);
             ctx.fill();
 
-            // 4. Reflejo de Luna sobre el agua
             const reflectGlow = ctx.createLinearGradient(moonX - 50, canvas.height * 0.6, moonX + 50, canvas.height);
             reflectGlow.addColorStop(0, 'rgba(212, 175, 55, 0.15)');
             reflectGlow.addColorStop(1, 'rgba(212, 175, 55, 0)');
             ctx.fillStyle = reflectGlow;
             ctx.fillRect(moonX - 60, canvas.height * 0.6, 120, canvas.height * 0.4);
 
-            // 5. Olas del Mar en Movimiento
             waveOffset += 0.02;
 
             ctx.fillStyle = 'rgba(12, 35, 68, 0.8)';
@@ -470,7 +460,7 @@
         }
         drawBeachNight();
 
-        // --- LÓGICA DE INTERACCIÓN Y MODALES ---
+        // --- CONEXIÓN CON FIREBASE ---
         const readModal = document.getElementById('readModal');
         const writeModal = document.getElementById('writeModal');
 
@@ -484,12 +474,39 @@
         const newMessageForm = document.getElementById('newMessageForm');
         const familyMessagesList = document.getElementById('familyMessagesList');
 
-        // Abrir modales
-        openBottleBtn.addEventListener('click', () => readModal.classList.add('active'));
-        readMessagesBtn.addEventListener('click', () => readModal.classList.add('active'));
+        async function fetchMessages() {
+            try {
+                const response = await fetch(DATABASE_URL);
+                const data = await response.json();
+
+                familyMessagesList.innerHTML = '';
+
+                if (!data) {
+                    familyMessagesList.innerHTML = '<p class="empty-notice">Aún no hay mensajes en la botella. ¡Sé el primero en escribir uno!</p>';
+                    return;
+                }
+
+                const messages = Object.values(data).reverse();
+
+                messages.forEach(item => {
+                    const card = document.createElement('div');
+                    card.className = 'message-card';
+                    card.innerHTML = `
+                        <p>"${item.message}"</p>
+                        <div class="message-author">— ${item.author}</div>
+                    `;
+                    familyMessagesList.appendChild(card);
+                });
+            } catch (error) {
+                familyMessagesList.innerHTML = '<p class="empty-notice">Aún no hay mensajes en la botella. ¡Escribe el primero!</p>';
+            }
+        }
+
+        // Modales
+        openBottleBtn.addEventListener('click', () => { fetchMessages(); readModal.classList.add('active'); });
+        readMessagesBtn.addEventListener('click', () => { fetchMessages(); readModal.classList.add('active'); });
         writeMessageBtn.addEventListener('click', () => writeModal.classList.add('active'));
 
-        // Cerrar modales
         closeReadModal.addEventListener('click', () => readModal.classList.remove('active'));
         closeWriteModal.addEventListener('click', () => writeModal.classList.remove('active'));
 
@@ -498,29 +515,39 @@
             if (e.target === writeModal) writeModal.classList.remove('active');
         });
 
-        // Guardar nuevo mensaje en vivo
-        newMessageForm.addEventListener('submit', (e) => {
+        // Guardar mensaje en Firebase
+        newMessageForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
-            const author = document.getElementById('authorInput').value;
-            const message = document.getElementById('messageInput').value;
+            const author = document.getElementById('authorInput').value.trim();
+            const message = document.getElementById('messageInput').value.trim();
 
-            const newCard = document.createElement('div');
-            newCard.className = 'message-card';
-            newCard.style.border = '1px solid var(--gold)';
-            newCard.innerHTML = `
-                <p>"${message}"</p>
-                <div class="message-author">— ${author}</div>
-            `;
+            if (!author || !message) return;
 
-            familyMessagesList.prepend(newCard);
-            newMessageForm.reset();
-            writeModal.classList.remove('active');
-            readModal.classList.add('active');
+            const newMsg = {
+                author,
+                message,
+                timestamp: Date.now()
+            };
+
+            try {
+                await fetch(DATABASE_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(newMsg)
+                });
+
+                newMessageForm.reset();
+                writeModal.classList.remove('active');
+                await fetchMessages();
+                readModal.classList.add('active');
+            } catch (err) {
+                alert("Ocurrió un error al guardar el mensaje. Intenta nuevamente.");
+            }
         });
+
+        // Cargar mensajes al entrar
+        fetchMessages();
     </script>
 </body>
 </html>
-  
-
-  
